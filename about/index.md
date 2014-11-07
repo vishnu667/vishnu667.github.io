@@ -1,25 +1,31 @@
 ---
 layout: page
-title: About the Theme
-tags: [about, Jekyll, theme, responsive]
-modified: 2014-08-08T20:53:07.573882-04:00
+title: About
+tags: 
+  - about
+  - Jekyll
+  - theme
+  - responsive
+modified: {}
 comments: true
-image:
-  feature: sample-image-2.jpg
+image: 
+  feature: "sample-image-2.jpg"
   credit: WeGraphics
-  creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
+  creditlink: "http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/"
+published: true
 ---
 
-Minimal Mistakes is responsive Jekyll theme with large featured images and solid typography. As the name implies the styling is fairly minimal to make it easier for you to build on top of.
+Hi, I’m Vishnu, a 21st century hillbilly from the misty hills of Kodai.
 
-## Minimal Mistakes is all about:
+A Programmer, Photographer, Gamer, NGO-activist and most important of all I'm a Human Being! even though Most of my Friends Will Deny the Fact that I'm one.
 
-* Responsive templates. Looking good on mobile, tablet, and desktop.
-* Gracefully degrading in older browsers. Compatible with Internet Explorer 8+ and all modern browsers. 
-* Minimal embellishments -- content first.
-* Optional large feature images for posts and pages.
-* Simple and clear permalink structure.
-* [Custom 404 page](http://mmistakes.github.io/minimal-mistakes/404.html) to get you started.
-* Support for Disqus Comments
+Gamer was am and will always be.
+I just Love playing PC Games anything and everything that would run in my PC from RoadRash to FarCry-4. 
 
-<a markdown="0" href="{{ site.url }}/theme-setup" class="btn">Install Minimal Mistakes Theme</a>
+Programmer
+The first Script that I wrote was to copy the contents of a Folder and paste it in a shared Folder. I started programming with Python Learned some webframeworks on it and that's when My life as a programmer started and i've been a learner ever since . learning php, perl, java, clojure and now towards scala.
+
+Photographer
+From my childHood I've always wanted to capture the moments and places I've been to share it with others photography has always been a passion. Never took a class on it and never will i just love taking pictures.
+
+
