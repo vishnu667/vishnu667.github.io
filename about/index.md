@@ -9,9 +9,9 @@ tags:
 modified: {}
 comments: true
 image: 
-  feature: "sample-image-2.jpg"
-  credit: WeGraphics
-  creditlink: "http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/"
+  feature: "kodai-lake.JPG"
+  credit: Vishnu Prasad
+  creditlink: "http://vishnu667.github.io/about/"
 published: true
 ---
 
