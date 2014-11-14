@@ -9,7 +9,7 @@ tags:
 modified: {}
 comments: true
 image: 
-  feature: "kodai-lake.JPG"
+  feature: "sunrise.jpg"
   credit: Vishnu Prasad
   creditlink: "http://vishnu667.github.io/about/"
 published: true
