@@ -133,3 +133,77 @@ ROW                                         COLUMN+CELL
 hbase(main):008:0> 
 
 {% endhighlight %}
+
+## IGNORE NOTE TO SELF
+
+#### Start Hadoop and Hbase
+
+{% highlight bash %}
+
+# Starting Hadoop
+$ /opt/hadoop/current/sbin/start-dfs.sh
+Starting namenodes on [cyborg]
+cyborg: starting namenode, logging to /opt/hadoop/hadoop-2.6.0/logs/hadoop-vishnu-namenode-cyborg.out
+cyborg: starting datanode, logging to /opt/hadoop/hadoop-2.6.0/logs/hadoop-vishnu-datanode-cyborg.out
+Starting secondary namenodes [0.0.0.0]
+0.0.0.0: starting secondarynamenode, logging to /opt/hadoop/hadoop-2.6.0/logs/hadoop-vishnu-secondarynamenode-cyborg.out
+
+# list of processes after starting hadoop
+$ jps
+21241 Jps
+20821 NameNode
+21165 SecondaryNameNode
+20975 DataNode
+
+# Starting Hbase
+
+$ /opt/hbase/current/bin/start-hbase.sh
+
+localhost: starting zookeeper, logging to /opt/hbase/current/bin/../logs/hbase-vishnu-zookeeper-cyborg.out
+starting master, logging to /opt/hbase/current/bin/../logs/hbase-vishnu-master-cyborg.out
+starting regionserver, logging to /opt/hbase/current/bin/../logs/hbase-vishnu-1-regionserver-cyborg.out
+
+# list of processes after starting hbase
+$ jps
+
+22139 HRegionServer
+22007 HMaster
+21938 HQuorumPeer
+20821 NameNode
+21165 SecondaryNameNode
+20975 DataNode
+22557 Jps
+
+{% endhighlight %}
+
+
+#### Stop Hbase and Hadoop
+
+{% highlight bash %}
+#Running Process before stopping
+$ jps
+15742 HQuorumPeer
+15815 HMaster
+18585 Jps
+15948 HRegionServer
+31714 SecondaryNameNode
+31518 DataNode
+31355 NameNode
+
+#Stopping Hbase 
+$ /opt/hbase/current/bin/stop-hbase.sh
+
+#Running Process after stopping hbase
+$ jps
+19080 Jps
+31714 SecondaryNameNode
+31518 DataNode
+31355 NameNode
+
+# Stopping dfs
+$ /opt/hadoop/current/sbin/stop-dfs.sh
+
+#Running Process after stopping dfs
+$ jps
+19682 Jps
+{% endhighlight %}
