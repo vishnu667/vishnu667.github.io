@@ -1,15 +1,16 @@
 ---
 layout: post
-title: Loading Data to Hive
+title: Loading Data to Hive :- Work in Progress
 modified:
 categories: 
-excerpt:
+excerpt: Work in Progress
 tags: []
 image:
   feature:
 date: 2015-05-19T12:14:45+05:30
 ---
 
+### Work in Progress Please Don't Proceed
 
 Create external table pokes (
   rowid int,

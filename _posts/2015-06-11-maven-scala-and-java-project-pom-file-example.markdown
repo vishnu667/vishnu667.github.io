@@ -3,8 +3,8 @@ layout: post
 title: Maven Scala and Java Mixin Project
 modified:
 categories: 
-excerpt:
-tags: []
+excerpt: A simple way to mixin and write, Java and Scala Together in the same project using Maven
+tags: [tutorial,maven,pom,java,scala,scala and java]
 image:
   feature:
 date: 2015-06-11T22:21:54+05:30
