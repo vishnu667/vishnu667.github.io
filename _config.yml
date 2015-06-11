@@ -2,8 +2,8 @@
 
 title:            Thoughts
 locale:           en_US
-#url:              http://vishnu667.github.io
-url: http://127.0.0.1:4000
+url:              http://vishnu667.github.io
+#url: http://127.0.0.1:4000
 
 
 # Jekyll configuration
@@ -32,7 +32,7 @@ owner:
   bio: "Just another boring time Travelling programmer from the streets of Gotham"
   email: vishnu667@gmail.com 
   disqus-shortname: #vishnu667
-  twitter: vishnu_cygen
+  twitter: vishnu667
   facebook: vishnu.cygen
   google:
     plus: vishnu667
