@@ -1,7 +1,7 @@
 ---
 layout: home
 excerpt: "Thoughts and Rumblings"
-tags: [Jekyll, theme, responsive, blog, template]
+tags: [Programming,java,c,c++,go,bigdata,analytics,scala]
 image:
   feature: birds-wide.jpg
   credit: Vishnu Prasad
