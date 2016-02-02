@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Theme Setup
-modified: 2014-07-31T13:23:02.362000-04:00
+modified: 2016-01-19
 excerpt: "Instructions on how to install and customize the Jekyll theme Minimal Mistakes."
 image:
   feature: sample-image-3.jpg
@@ -9,19 +9,11 @@ image:
   creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
 ---
 
-<section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
+{% include _toc.html %}
 
 ## Installation
 
-Minimal Mistakes now requires [Jekyll](http://jekyllrb.com/) 2.2+. Make sure to run `gem update jekyll` if you aren't on the latest version or `gem install jekyll` if this is your first time installing it.
+Minimal Mistakes now requires [Jekyll](http://jekyllrb.com/) 3.0. Make sure to run `bundle update` if you aren't on the latest version to update all gem dependencies.
 
 If you are creating a new Jekyll site using Minimal Mistakes follow these steps:
 
@@ -37,10 +29,26 @@ If you want to use Minimal Mistakes with an existing Jekyll site follow these st
 3. Run `bundle install` to install all dependencies (Jekyll, [Jekyll-Sitemap](https://github.com/jekyll/jekyll-sitemap), [Octopress](https://github.com/octopress/octopress), etc)
 4. Remove demo posts/pages and replace with your own posts, pages, and any other content you want to move over.
 5. Update posts' and pages' YAML to match variables used by Minimal Mistakes. Full details below.
-6. Update `_config.yml` and add navigation links. Full details below. 
+6. Update `_config.yml` and add navigation links. Full details below.
 
 **Pro-tip:** Delete the `gh-pages` branch after cloning and start fresh by branching off `master`. There is a bunch of garbage in `gh-pages` used for the theme's demo site that I'm guessing you won't want.
 {: .notice}
+
+---
+
+## Running Jekyll
+
+The preferred method for running Jekyll is with `bundle exec`, but if you're willing to deal gem conflicts feel free to go cowboy with a `jekyll build` or `jekyll serve`.
+
+> In some cases, running executables without bundle exec may work, if the executable happens to be installed in your system and does not pull in any gems that conflict with your bundle.
+>
+>However, this is unreliable and is the source of considerable pain. Even if it looks like it works, it may not work in the future or on another machine.
+
+{% highlight text %}
+bundle exec jekyll build
+
+bundle exec jekyll serve
+{% endhighlight %}
 
 ---
 
@@ -80,7 +88,7 @@ minimal-mistakes/
 ├── images/                      # images for posts and pages
 ├── 404.md                       # 404 page
 ├── feed.xml                     # Atom feed template
-├── index.md                     # sample homepage. lists 5 latest posts 
+├── index.md                     # sample homepage. lists 5 latest posts
 ├── posts/                       # sample post index page. lists all posts in reverse chronology
 └── theme-setup/                 # theme setup page. safe to remove
 {% endhighlight %}
@@ -110,8 +118,8 @@ Examples:
 {% highlight yaml %}
 url: http://mmistakes.github.io/minimal-mistakes
 url: http://localhost:4000
-url: http://mademistakes.com
-url: 
+url: //cooldude.github.io
+url:
 {% endhighlight %}
 
 #### Google Analytics and Webmaster Tools
@@ -127,7 +135,7 @@ To set what links appear in the top navigation edit `_data/navigation.yml`. Use 
   url: /portfolio/
 
 - title: Made Mistakes
-  url: http://mademistakes.com  
+  url: http://mademistakes.com
 {% endhighlight %}
 
 ---
@@ -137,7 +145,7 @@ To set what links appear in the top navigation edit `_data/navigation.yml`. Use 
 While completely optional, I've included Octopress and some starter templates to automate the creation of new posts and pages. To take advantage of it start by installing the [Octopress](https://github.com/octopress/octopress) gem if it isn't already.
 
 {% highlight bash %}
-$ gem install octopress --pre
+$ gem install octopress
 {% endhighlight %}
 
 ### New Post
@@ -151,7 +159,7 @@ $ octopress new post "Post Title"
 Default works great if you want all your posts in one directory, but if you're like me and want to group them into subfolders like `/posts`, `/portfolio`, etc. Then this is the command for you. By specifying the DIR it will create a new post in that folder and populate the `categories:` YAML with the same value.
 
 {% highlight bash %}
-$ octopress new post "New Post Title" --dir posts
+$ octopress new post "New Portfolio Post Title" --dir portfolio
 {% endhighlight %}
 
 ### New Page
@@ -252,26 +260,35 @@ To assign Billy Rick as an author for our post. We'd add the following YAML fron
 author: billy_rick
 {% endhighlight %}
 
-### Table of Contents
+### Kramdown Table of Contents
 
-Any post or page that you want a *table of contents* to render insert the following HTML in your post before the actual content. [Kramdown will take care of the rest](http://kramdown.rubyforge.org/converter/html.html#toc) and convert all headlines into a contents list.
-
-**PS:** The TOC is hidden on small devices because I haven't gotten around to optimizing it. For now it only appears on larger screens (tablet and desktop).
-{: .notice}
+To include an auto-generated **table of contents** for posts and pages, add the following `_include` before the actual content. [Kramdown will take care of the rest](http://kramdown.rubyforge.org/converter/html.html#toc) and convert all headlines into list of links.
 
 {% highlight html %}
-<section id="table-of-contents" class="toc">
-  <header>
-    <h3>Overview</h3>
-  </header>
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
+{% raw %}{% include _toc.html %}{% endraw %}
 {% endhighlight %}
 
-#### Videos
+### Paragraph Indentation
+
+By default the margin below paragraphs has been removed and indent added to each. This is an intentional design decision to mimic the look of type set in a printed book or manuscript.
+
+<figure>
+  <img src="{{ site.url }}/images/paragraph-indent.png" alt="screen shot of paragraphs with default indent style set">
+  <figcaption>Example of the default paragraph style (indented first line and bottom margin removed).</figcaption>
+</figure>
+
+To disable the indents and add spacing between paragraphs change the following line in `_sass/variables.scss` from `true !default` to `false` like so.
+
+{% highlight css %}
+$paragraph-indent: false;
+{% endhighlight %}
+
+<figure>
+  <img src="{{ site.url }}/images/paragraph-no-indent.png" alt="screen shot of paragraphs with indent style disabled">
+  <figcaption>Example of paragraphs with $paragraph-indent disabled.</figcaption>
+</figure>
+
+### Videos
 
 Video embeds are responsive and scale with the width of the main content block with the help of [FitVids](http://fitvidsjs.com/).
 
@@ -280,6 +297,10 @@ Not sure if this only effects Kramdown or if it's an issue with Markdown in gene
 {% highlight html %}
 <iframe width="560" height="315" src="http://www.youtube.com/embed/PWf4WUoMXwg" frameborder="0"> </iframe>
 {% endhighlight %}
+
+### Social Sharing Links
+
+Social sharing links for Twitter, Facebook, and Google+ are included on posts/pages by default. To hide them on specific posts or pages add `share: false` to the YAML Front Matter. If you'd like to use different social networks modify `_includes/_social-share.html` to your liking. Icons are set using [Font Awesome](http://fontawesome.io).
 
 ---
 
@@ -307,4 +328,4 @@ Found a bug or aren't quite sure how something works? By all means Ping me on Tw
 
 ## License
 
-This theme is free and open source software, distributed under the MIT License. So feel free to use this Jekyll theme on your site without linking back to me or including a disclaimer. 
+This theme is free and open source software, distributed under the MIT License. So feel free to use this Jekyll theme on your site without linking back to me or including a disclaimer.

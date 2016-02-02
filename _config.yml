@@ -2,57 +2,75 @@
 
 title:            Thoughts
 locale:           en_US
-url:              http://vishnu667.github.io
-#url: http://127.0.0.1:4000
+url:
 
 
 # Jekyll configuration
 
 permalink:   /:categories/:title/
 markdown:    kramdown
-highlighter: pygments
+highlighter: rouge
 sass:
   sass_dir: _sass
   style: compressed
 gems:
   - jekyll-sitemap
+  - jekyll-gist
 
 kramdown:
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  use_coderay: false
+  enable_coderay: false
+
+
+# Octopress
+
+# Default extensions
+post_ext: md
+page_ext: md
+
+# Found in _templates/
+post_layout: post
+page_layout: page
+
+# Format titles with titlecase?
+titlecase: true
 
 
 # Site owner
 owner:
   name: Vishnu Prasad
   avatar: vishnu.jpg
-  bio: "Just another boring time Travelling programmer from the streets of Gotham"
-  email: vishnu667@gmail.com 
-  disqus-shortname: #vishnu667
+  bio: "Just another boring time Travelling programmer from the streets of Gotham."
+  email: vishnu667@gmail.com
+  disqus-shortname:
   twitter: vishnu667
   facebook: vishnu667
   google:
     plus: vishnu667
-    analytics: 
-    verify: 
-    ad-client: 
-    ad-slot: 
-  bing-verify: 
+    analytics:
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
   github: vishnu667
-  stackoverflow: http://stackoverflow.com/users/123456/vishnu667
+  stackoverflow: 2104970/vishnu667
   linkedin: vishnu667
-  instagram: #username
+  xing: #username
+  instagram: vishnu667
   lastfm: #username
   tumblr: #username
   pinterest: #username
   foursquare: #username
-  steam: #username
+  steam: vishnu667
   dribbble: #username
   youtube: #username
   soundcloud: #username
+  weibo: #username
+  flickr: vishnu667
+  codepen: #username
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]

@@ -1,14 +1,14 @@
 ---
 layout: page
 title: About Me
-tags: 
+tags:
   - about
   - Jekyll
   - theme
   - responsive
 modified: {}
 comments: true
-image: 
+image:
   feature: "sunrise.jpg"
   credit: Vishnu Prasad
   creditlink: "http://vishnu667.github.io/about/"
