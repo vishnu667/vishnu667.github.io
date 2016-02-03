@@ -13,7 +13,7 @@ Assuming that you have setup hadoop 2X as described in [Setting Up Hadoop 2.6.0]
 ### Step 1.1 : Hbase Installation - Download and Extract hbase
 
 
-I've downloaded hbase from the [Hbase-1.0.1 Download](http://mirrors.koehn.com/apache/hbase/hbase-1.0.1/hbase-1.0.1-bin.tar.gz)
+I've downloaded hbase from the [Hbase-1.0.1 Download](http://www.apache.org/dyn/closer.cgi/hbase/)
 
 {% highlight bash %}
 mkdir /opt/hbase
@@ -57,7 +57,7 @@ export JAVA_HOME=/opt/java/current
 {% endhighlight %}
 
 ### Step 2.1 : Starting Hbase
-Start hbase by executing the following command 
+Start hbase by executing the following command
 {% highlight bash %}
 /opt/hbase/current/bin/start-hbase.sh
 {% endhighlight %}
@@ -130,7 +130,7 @@ ROW                                         COLUMN+CELL
  row3                                       column=cf:c, timestamp=1431511403914, value=value3                                                                          
 3 row(s) in 0.0430 seconds
 
-hbase(main):008:0> 
+hbase(main):008:0>
 
 {% endhighlight %}
 
@@ -190,7 +190,7 @@ $ jps
 31518 DataNode
 31355 NameNode
 
-#Stopping Hbase 
+#Stopping Hbase
 $ /opt/hbase/current/bin/stop-hbase.sh
 
 #Running Process after stopping hbase
