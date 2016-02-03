@@ -3,4 +3,4 @@ set -e # halt script on error
 
 bundle exec jekyll build
 bundle exec htmlproof ./_site --disable-external
-ruby ./script/proof.rb
+bundle exec ruby script/proof.rb
