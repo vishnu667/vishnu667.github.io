@@ -1,5 +1,7 @@
 # Personal Blog [vishnu667.github.io](http://vishnu667.github.io)
 
+[![Join the chat at https://gitter.im/vishnu667/vishnu667.github.io](https://badges.gitter.im/vishnu667/vishnu667.github.io.svg)](https://gitter.im/vishnu667/vishnu667.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ### Build Status [![Build Status](https://travis-ci.org/vishnu667/vishnu667.github.io.svg?branch=master)](https://travis-ci.org/vishnu667/vishnu667.github.io)
 
 
