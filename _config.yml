@@ -3,7 +3,7 @@
 title:            Thoughts
 locale:           en_US
 url:  http://vishnu667.github.io
-#url:  http://localhost:4000
+#url:  http://127.0.0.1:4000
 
 
 # Jekyll configuration
@@ -71,6 +71,7 @@ owner:
   soundcloud: #username
   weibo: #username
   flickr: vishnu667
+  gitter: https://gitter.im/vishnu667/vishnu667.github.io
   codepen: #username
 
 include: [".htaccess"]
