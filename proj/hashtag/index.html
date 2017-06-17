@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>HashTag Helper</title>
+ <meta name="referrer" content="no-referrer" />
+
+	<style>
+.tooltip{position:relative;display:inline-block;border-bottom:1px dotted #000}.tooltip .tooltiptext{visibility:hidden;width:120px;background-color:#000;color:#fff;text-align:center;border-radius:6px;padding:5px 0;position:absolute;z-index:1;bottom:100%;left:50%;margin-left:-60px}.tooltip:hover .tooltiptext{visibility:visible}
+</style>
+
+</head>
+<body>
+<textarea id="textarea" style="width: 80%;height: 100px;"></textarea>
+<br/>
+<br/>
+<button onclick="getAllTags()">Complete</button>
+
+<div id="Content">
+	<div>
+		<h3>Top 30 Tags</h3>
+		<div id="top30Tags">
+			
+		</div>
+	</div>
+	<hr>
+	<div>
+		<h3>Top 30 Tags By 4 in Each Given Tag</h3>
+		<div id="top30By4Tags">
+			
+		</div>
+	</div>
+	<hr>
+	<div>
+		<h3>Choosen Tags</h3>
+		<div id="choosenTags">
+			
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+
+function getTag(_0xbf9bx2){var _0xbf9bx3= new XMLHttpRequest();_0xbf9bx3[["\x47\x45\x54","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x32\x31\x32\x72\x6B\x76\x6F\x38\x74\x36\x32\x65\x6C\x2E\x63\x6C\x6F\x75\x64\x66\x72\x6F\x6E\x74\x2E\x6E\x65\x74\x2F\x74\x61\x67\x2F","\x6F\x70\x65\x6E","\x73\x65\x6E\x64","\x72\x65\x73\x70\x6F\x6E\x73\x65\x54\x65\x78\x74","\x70\x61\x72\x73\x65"][2]](["\x47\x45\x54","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x32\x31\x32\x72\x6B\x76\x6F\x38\x74\x36\x32\x65\x6C\x2E\x63\x6C\x6F\x75\x64\x66\x72\x6F\x6E\x74\x2E\x6E\x65\x74\x2F\x74\x61\x67\x2F","\x6F\x70\x65\x6E","\x73\x65\x6E\x64","\x72\x65\x73\x70\x6F\x6E\x73\x65\x54\x65\x78\x74","\x70\x61\x72\x73\x65"][0],[["\x47\x45\x54","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x32\x31\x32\x72\x6B\x76\x6F\x38\x74\x36\x32\x65\x6C\x2E\x63\x6C\x6F\x75\x64\x66\x72\x6F\x6E\x74\x2E\x6E\x65\x74\x2F\x74\x61\x67\x2F","\x6F\x70\x65\x6E","\x73\x65\x6E\x64","\x72\x65\x73\x70\x6F\x6E\x73\x65\x54\x65\x78\x74","\x70\x61\x72\x73\x65"][1]][0]+ _0xbf9bx2,false);_0xbf9bx3[["\x47\x45\x54","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x32\x31\x32\x72\x6B\x76\x6F\x38\x74\x36\x32\x65\x6C\x2E\x63\x6C\x6F\x75\x64\x66\x72\x6F\x6E\x74\x2E\x6E\x65\x74\x2F\x74\x61\x67\x2F","\x6F\x70\x65\x6E","\x73\x65\x6E\x64","\x72\x65\x73\x70\x6F\x6E\x73\x65\x54\x65\x78\x74","\x70\x61\x72\x73\x65"][3]](null);return JSON[["\x47\x45\x54","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x32\x31\x32\x72\x6B\x76\x6F\x38\x74\x36\x32\x65\x6C\x2E\x63\x6C\x6F\x75\x64\x66\x72\x6F\x6E\x74\x2E\x6E\x65\x74\x2F\x74\x61\x67\x2F","\x6F\x70\x65\x6E","\x73\x65\x6E\x64","\x72\x65\x73\x70\x6F\x6E\x73\x65\x54\x65\x78\x74","\x70\x61\x72\x73\x65"][5]](_0xbf9bx3[["\x47\x45\x54","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x32\x31\x32\x72\x6B\x76\x6F\x38\x74\x36\x32\x65\x6C\x2E\x63\x6C\x6F\x75\x64\x66\x72\x6F\x6E\x74\x2E\x6E\x65\x74\x2F\x74\x61\x67\x2F","\x6F\x70\x65\x6E","\x73\x65\x6E\x64","\x72\x65\x73\x70\x6F\x6E\x73\x65\x54\x65\x78\x74","\x70\x61\x72\x73\x65"][4]])}
+
+var complete = [];
+var choosen = [];
+var top4 = [];
+
+function tagSort(docs) {
+    return docs.sort(function(x, y) {
+        return y.rank - x.rank || y.count - x.count;
+    });
+};
+
+function deleteContent(x) {
+    while (x.firstChild) {
+        x.removeChild(x.firstChild);
+    }
+};
+
+function getAllTags() {
+    complete = [];
+    choosen = [];
+    top4 = [];
+    var top30Tags = document.getElementById("top30Tags");
+    var top30By4Tags = document.getElementById("top30By4Tags");
+    var choosenTags = document.getElementById("choosenTags");
+    deleteContent(top30Tags);
+    deleteContent(top30By4Tags);
+    deleteContent(choosenTags);
+
+    var docs = document.getElementById("textarea").value.replace(/\n/g, ",").replace(/\s/g, "").replace("#", "").split(",").filter(n => n).map(getTag);
+    // Populate all the previous Arrays
+    docs.forEach(function(doc) {
+        var tmpArray = [];
+        doc.results.forEach(function(x) {
+            var tmpXobj = {
+                tag: x.tag,
+                rank: x.rank,
+                count: x.media_count
+            };
+            complete.push(tmpXobj);
+            tmpArray.push(tmpXobj);
+        });
+
+        if (doc.tagExists) {
+            var tmpTagObj = {
+                tag: doc.tag,
+                rank: doc.rank,
+                count: doc.media_count
+            };
+            tmpArray.push(tmpTagObj);
+            complete.push(tmpTagObj);
+            choosen.push(tmpTagObj);
+        }
+
+        top4.push.apply(top4, tagSort(tmpArray).slice(0, 4));
+    });
+
+    // top30Tags
+    tagSort(complete).slice(0, 30).forEach(function(x) {
+        var span = document.createElement("span");
+        span.classList = ["tooltiptext"];
+        span.appendChild(document.createTextNode("rank:" + x.rank));
+
+        var div = document.createElement("div");
+        div.classList = ["tooltip"];
+        div.appendChild(document.createTextNode("\u00A0#" + x.tag + "\u00A0"));
+        div.appendChild(span);
+        top30Tags.appendChild(div);
+    })
+
+    //top30By4Tags
+    tagSort(top4).slice(0, 30).forEach(function(x) {
+        var span = document.createElement("span");
+        span.classList = ["tooltiptext"];
+        span.appendChild(document.createTextNode("rank:" + x.rank));
+
+        var div = document.createElement("div");
+        div.classList = ["tooltip"];
+        div.appendChild(document.createTextNode("\u00A0#" + x.tag + "\u00A0"));
+        div.appendChild(span);
+        top30By4Tags.appendChild(div);
+    })
+
+    //choosenTags
+    tagSort(choosen).slice(0, 30).forEach(function(x) {
+        var span = document.createElement("span");
+        span.classList = ["tooltiptext"];
+        span.appendChild(document.createTextNode("rank:" + x.rank));
+
+        var div = document.createElement("div");
+        div.classList = ["tooltip"];
+        div.appendChild(document.createTextNode("\u00A0#" + x.tag + "\u00A0"));
+        div.appendChild(span);
+        choosenTags.appendChild(div);
+    })
+
+};
+
+</script>
+</html>
